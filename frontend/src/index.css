@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #0d0d0d;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  overflow-y: hidden;
+  width: 0px;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
