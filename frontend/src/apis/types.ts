@@ -22,6 +22,8 @@ export interface Product {
   isFavorite: boolean;
   author?: Author;
   category: string;
+  theme: string;
+  tier: string;
 }
 
 export interface ProductWithAuthor extends Omit<Product, "authorId"> {

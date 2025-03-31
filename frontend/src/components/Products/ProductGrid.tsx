@@ -215,10 +215,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <ProductTitle>{product.title}</ProductTitle>
         <ProductPrice>{product.price} ETH</ProductPrice>
       </ProductInfo>
-      <UserInfo>
-        <UserAvatar src={product?.author?.avatar} />
-        <div className="user-name">{`${product?.author?.firstName} ${product?.author?.lastName}`}</div>
-      </UserInfo>
+      {product.author && (
+        <UserInfo>
+          <UserAvatar
+            src={product.author.avatar}
+            alt={`${product.author.firstName} ${product.author.lastName}`}
+          />
+          <div className="user-name">{`${product.author.firstName} ${product.author.lastName}`}</div>
+        </UserInfo>
+      )}
     </ProductCardContainer>
   );
 };
@@ -243,7 +248,7 @@ const ProductGrid: React.FC<ProductGridProps> = (props: ProductGridProps) => {
     props;
   return (
     <ProductGridContainer>
-      <CategoryTitle>
+      <CategoryTitle data-testid="category-title">
         {categories.map((category, index) => (
           <StyledButton
             key={`${category.value}_${index}`}
@@ -255,7 +260,7 @@ const ProductGrid: React.FC<ProductGridProps> = (props: ProductGridProps) => {
         ))}
       </CategoryTitle>
       <div className="product-grid">
-        <ProductsGrid>
+        <ProductsGrid data-testid="products-grid">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

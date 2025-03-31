@@ -60,3 +60,37 @@ export const navLinks: NavItem[] = [
   { id: "roadmap", label: "Roadmap", href: "/roadmap" },
   { id: "whitepaper", label: "Whitepaper", href: "/whitepaper" },
 ];
+
+export interface HeroBannerProduct {
+  id: string;
+  title: string;
+  image: string;
+  backgroundImage: string;
+}
+
+export const heroBannerProducts: HeroBannerProduct[] = [
+  {
+    id: "1",
+    title: "Assassin",
+    image: "/assassin.png",
+    backgroundImage: "/background-product-banner.svg",
+  },
+  {
+    id: "2",
+    title: "Neon Guy",
+    image: "/neon-guy.png",
+    backgroundImage: "/background-product-banner.svg",
+  },
+  {
+    id: "3",
+    title: "Mafia England",
+    image: "/mafia.png",
+    backgroundImage: "/background-product-banner.svg",
+  },
+  {
+    id: "4",
+    title: "BasketBall Girl",
+    image: "/basketball-girl.png",
+    backgroundImage: "/background-product-banner.svg",
+  },
+];

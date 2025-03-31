@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { characters } from "../../data/mock-data";
+import { characters, heroBannerProducts } from "../../data/mock-data";
 
 const Container = styled.div`
   display: flex;
@@ -204,19 +204,17 @@ const Marketplace = () => {
       </Banner>
 
       <YellowSection>
-        {characters.map((product, index) => {
-          return (
-            <ProductWrapper key={index}>
-              <img
-                src="/background-product-banner.svg"
-                alt={product.name}
-                className="background-frame"
-              />
-              <img src={product.src} alt={product.name} className="card-img" />
-              <div className="title-product">{product.name}</div>
-            </ProductWrapper>
-          );
-        })}
+        {heroBannerProducts.map((product) => (
+          <ProductWrapper key={product.id}>
+            <img
+              src={product.backgroundImage}
+              alt="Background Product"
+              className="background-frame"
+            />
+            <img src={product.image} alt={product.title} className="card-img" />
+            <div className="title-product">{product.title}</div>
+          </ProductWrapper>
+        ))}
       </YellowSection>
 
       <FeaturedCharacter>

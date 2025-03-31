@@ -203,7 +203,7 @@ const FilterSidebar = (props: FilterSidebarProps) => {
   } = props;
 
   return (
-    <SidebarContainer>
+    <SidebarContainer data-testid="filter-sidebar">
       <div>
         <StyledInput
           value={keyword}
@@ -288,7 +288,7 @@ const FilterSidebar = (props: FilterSidebarProps) => {
         />
       </div>
 
-      <div className="button-group">
+      <div className="button-group" data-testid="button-group">
         <ResetButton onClick={handleReset}>
           <CloseCircleOutlined />
           Reset filter
