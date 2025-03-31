@@ -1,9 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import HeroBanner from "../components/Section/HeroBanner";
-import { heroBannerProducts } from "../data/mock-data";
 
 describe("HeroBanner", () => {
-  beforeEach(() => {
+  let HeroBanner: React.ComponentType;
+  let heroBannerProducts: any[];
+
+  beforeEach(async () => {
+    const HeroBannerModule = await import("../components/Section/HeroBanner");
+    HeroBanner = HeroBannerModule.default;
+
+    const mockDataModule = await import("../data/mock-data");
+    heroBannerProducts = mockDataModule.heroBannerProducts;
+
     render(<HeroBanner />);
   });
 

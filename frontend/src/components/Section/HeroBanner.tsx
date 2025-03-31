@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { characters, heroBannerProducts } from "../../data/mock-data";
+import { heroBannerProducts } from "../../data/mock-data";
 
 const Container = styled.div`
   display: flex;
