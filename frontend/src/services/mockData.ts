@@ -1,8 +1,17 @@
 import dataMock from "./db.json";
 
 export const mockService = {
-  getAll: async () => {
-    return { data: dataMock.products };
+  getAll: async ({ start = 0, limit = 20 } = {}) => {
+    const paginatedProducts = dataMock.products.slice(start, start + limit);
+    return {
+      data: paginatedProducts,
+      pagination: {
+        total: dataMock.products.length,
+        start,
+        limit,
+        hasMore: start + limit < dataMock.products.length,
+      },
+    };
   },
   getById: async (id: number) => {
     const product = dataMock.products.find((p) => p.id === id);
