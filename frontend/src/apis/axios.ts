@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getApiConfig } from "../config/api";
-import { mockService, mockData } from "../services/mockData";
+import { mockService } from "../services/mockData";
 
 const config = getApiConfig();
 const axiosInstance = axios.create({
@@ -39,12 +39,6 @@ axiosInstance.interceptors.response.use(
     try {
       if (method === "get") {
         if (url.includes("/products")) {
-          if (url.includes("?authorId=")) {
-            const authorId = parseInt(url.split("authorId=")[1]);
-            return handleApiError(error, () =>
-              mockService.getByAuthor(authorId)
-            );
-          }
           if (url.includes("?category=")) {
             const category = url.split("category=")[1];
             return handleApiError(error, () =>
@@ -60,17 +54,6 @@ axiosInstance.interceptors.response.use(
             return handleApiError(error, () => mockService.getById(id));
           }
           return handleApiError(error, mockService.getAll);
-        }
-        if (url.includes("/authors")) {
-          if (url.match(/\/authors\/\d+/)) {
-            const id = parseInt(url.split("/").pop() || "0");
-            return handleApiError(error, async () => ({
-              data: mockData.authors.find((a) => a.id === id),
-            }));
-          }
-          return handleApiError(error, async () => ({
-            data: mockData.authors,
-          }));
         }
       }
     } catch (mockError) {
