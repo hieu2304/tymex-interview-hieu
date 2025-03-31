@@ -12,6 +12,11 @@ export interface NavItem {
   href: string;
 }
 
+export interface NavLinkProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
 export interface Author {
   id: number;
   firstName: string;

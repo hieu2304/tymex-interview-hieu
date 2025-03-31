@@ -27,6 +27,8 @@ const mockProducts: ProductWithImage[] = [
       updatedAt: "2024-01-01",
     },
     category: "Legendary",
+    theme: "Light",
+    tier: "Basic",
   },
   {
     id: 2,
@@ -51,6 +53,8 @@ const mockProducts: ProductWithImage[] = [
       updatedAt: "2024-01-01",
     },
     category: "Rare",
+    theme: "Light",
+    tier: "Basic",
   },
 ];
 

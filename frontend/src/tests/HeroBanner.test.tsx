@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import HeroBanner from "../HeroBanner";
-import { heroBannerProducts } from "../../../data/mock-data";
+import HeroBanner from "../components/Section/HeroBanner";
+import { heroBannerProducts } from "../data/mock-data";
 
 describe("HeroBanner", () => {
   beforeEach(() => {
@@ -17,13 +17,13 @@ describe("HeroBanner", () => {
 
   it("renders all hero banner products", () => {
     heroBannerProducts.forEach((product) => {
-      expect(screen.getByAlt(product.title)).toBeInTheDocument();
+      expect(screen.getByAltText(product.title)).toBeInTheDocument();
       expect(screen.getByText(product.title)).toBeInTheDocument();
     });
   });
 
   it("renders the featured character image and name", () => {
-    expect(screen.getByAlt("The DJ")).toBeInTheDocument();
+    expect(screen.getByAltText("The DJ")).toBeInTheDocument();
     expect(screen.getByText("THE DJ")).toBeInTheDocument();
   });
 
@@ -42,7 +42,7 @@ describe("HeroBanner", () => {
 
   it("renders product images with correct sources", () => {
     heroBannerProducts.forEach((product) => {
-      const img = screen.getByAlt(product.title);
+      const img = screen.getByAltText(product.title);
       expect(img).toHaveAttribute("src", product.image);
     });
   });

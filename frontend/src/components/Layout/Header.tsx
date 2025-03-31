@@ -46,7 +46,7 @@ const NavMenu = styled.nav`
   }
 `;
 
-const NavLink = styled.a<NavLinkProps>`
+const NavLink = styled.a<NavLinkProps & { $isActive: boolean }>`
   color: ${(props) => (props.$isActive ? "#b833ff" : "white")};
   text-decoration: none;
   font-size: 14px;
